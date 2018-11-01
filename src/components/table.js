@@ -1,6 +1,18 @@
 import React from 'react';
 
-function table(){
+function table(props){
+    const tableRows = props.data.map(function(item, index){
+        return (
+            <tr key={index}>
+                <td>{item.student}</td>
+                <td>{item.course}</td>
+                <td>{item.grade}</td>
+            </tr>
+        );
+    });
+
+    console.log('Table Rows:', tableRows);
+
     return (
             <table className="table">
                 <thead className="thead-inverse">
@@ -10,22 +22,9 @@ function table(){
                         <th>Grade</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr>
-                        <td>Bugs Bunny</td>
-                        <td>Agriculture</td>
-                        <td>75</td>
-                    </tr>
-                    <tr>
-                        <td>Wiley E Coyote</td>
-                        <td>Explosives</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>Road Runner</td>
-                        <td>Track and Field</td>
-                        <td>95</td>
-                    </tr>
+                    {tableRows}
                 </tbody>
             </table>
     )
