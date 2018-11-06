@@ -1,15 +1,29 @@
 import React from 'react';
 
-// WHY DOES THIS WAY NOT WORK? AT THE END OF FEATURE SET 2, ONLY FULL NAME WOULD DISPLAY, AND NO ACTUAL NAMES
-// export default function props(){
-//     return (
-//         <h1>Full Name: {props.firstName} {props.lastName}</h1>
-//     )
-// }
+export default function(props){
 
-export default props => {
+    const {firstName, lastName, phone, email} = props.contact;
+
     return (
-        <h1>Full Name: {props.firstName} {props.lastName}</h1>
+        <div className="col-6 my-3">
+            <div className="card">
+                <div className="card-header">
+                    {lastName}
+                </div>
+                <div className="card-block">
+                    <h4 className="card-title">{firstName} {lastName}</h4>
+                    <div className="card-text">
+                        <p>
+                            <b>Phone: {phone}</b>
+                        </p>
+                        <p>
+                            <b>Email: {email}</b>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     )
 }
 
